@@ -36,7 +36,7 @@ class App extends Component {
               </NavItem>
             </Nav>
           </Navbar>
-          {( false ? 
+          {( this.props.loginUser !== undefined ? 
           (
           <Fragment>
             <Route exact path='/' render={() => (
@@ -62,5 +62,5 @@ class App extends Component {
 
 }
 
-export default connect()
+export default connect(({ userState }) => ({ loginUser: userState.loginUser }))
 (App);

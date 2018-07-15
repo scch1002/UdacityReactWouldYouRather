@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem  } from 'reactstrap';
+import { loginUser } from '../actions/users';
 
 class Login extends Component {   
     constructor(props) {
@@ -21,6 +22,9 @@ class Login extends Component {
         this.setState({
             selectedUser: this.props.users.find(f => f.id === event.target.value)
         });
+    }
+    loginUser = () => {
+        this.props.dispatch(loginUser(this.state.selectedUser));
     }
     render() {
         return (
@@ -44,7 +48,7 @@ class Login extends Component {
                             ) : ''}
                         </DropdownMenu>
                     </Dropdown>
-                    <Button>Button</Button>
+                    <Button onClick={this.loginUser}>Sign In</Button>
                 </CardBody>
             </Card>
         );
@@ -52,5 +56,5 @@ class Login extends Component {
 }
 
 export default connect(
-    (({ users }) => users !== undefined ? ({ users: [ users.sarahedo, users.tylermcginnis, users.johndoe ] }) : { users: undefined })
+    (({ userState: { availableUsers, loginUser } }) => availableUsers !== undefined ? ({ users: [ availableUsers.sarahedo, availableUsers.tylermcginnis, availableUsers.johndoe ] }) : { users: undefined })
 )(Login);

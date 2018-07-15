@@ -8,11 +8,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers';
+import { applyMiddleware } from 'redux';
+import Thunk from 'redux-thunk';
 
-const store = createStore(reducer);
+const store = createStore(reducer, applyMiddleware( Thunk ));
 
 ReactDOM.render(
-    <Provider>
+    <Provider store={store}>
         <BrowserRouter>
             <App />
         </BrowserRouter>

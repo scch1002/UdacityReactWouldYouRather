@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import {
   Collapse,
@@ -11,9 +12,13 @@ import { QuestionDashboard } from './components/questionDashboard';
 import './App.css';
 import { NewQuestion } from './components/newQuestion';
 import { LeaderBoard } from './components/leaderBoard.js';
-import { Login } from './components/login';
+import Login from './components/login';
+import { retrieveUsers } from './actions/users'
 
 class App extends Component {
+  componentDidMount() {
+    this.props.dispatch(retrieveUsers());
+  }  
   render() {
     return (
       <div className="App">
@@ -47,11 +52,15 @@ class App extends Component {
             )}>
             </Route>
           </Fragment>
-          ) :
-          <Login></Login>)}
+          ) : true ?
+          (<Login></Login>)  
+          : 'Loading'
+          )}
       </div>
     );
   }
+
 }
 
-export default App;
+export default connect()
+(App);

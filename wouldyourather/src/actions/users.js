@@ -2,7 +2,7 @@ import { _getUsers  } from '../utils/_DATA';
 
 export const RETRIEVE_USER = 'USERS_RETRIEVE_USERS';
 
-export const setAvaliableUsers = (users) => ({
+const setAvaliableUsers = (users) => ({
         type: RETRIEVE_USER,
         availableUsers: users
 });

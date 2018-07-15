@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Route } from 'react-router-dom';
 import {
   Collapse,
@@ -11,6 +11,7 @@ import { QuestionDashboard } from './components/questionDashboard';
 import './App.css';
 import { NewQuestion } from './components/newQuestion';
 import { LeaderBoard } from './components/leaderBoard.js';
+import { Login } from './components/login';
 
 class App extends Component {
   render() {
@@ -30,18 +31,24 @@ class App extends Component {
               </NavItem>
             </Nav>
           </Navbar>
-          <Route exact path='/' render={() => (
-              <QuestionDashboard />
-          )}>
-          </Route>
-          <Route path='/add' render={() => (
-              <NewQuestion />
-          )}>
-          </Route>
-          <Route path='/leaderboard' render={() => (
-              <LeaderBoard />
-          )}>
-          </Route>
+          {( false ? 
+          (
+          <Fragment>
+            <Route exact path='/' render={() => (
+                <QuestionDashboard />
+            )}>
+            </Route>
+            <Route path='/add' render={() => (
+                <NewQuestion />
+            )}>
+            </Route>
+            <Route path='/leaderboard' render={() => (
+                <LeaderBoard />
+            )}>
+            </Route>
+          </Fragment>
+          ) :
+          <Login></Login>)}
       </div>
     );
   }

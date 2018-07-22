@@ -1,6 +1,7 @@
 import React from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
+import { QuestionListItem } from './questionListItem';
 
 export default class QuestionDashboard extends React.Component {
   constructor(props) {
@@ -43,14 +44,22 @@ export default class QuestionDashboard extends React.Component {
           <TabPane tabId="1">
             <Row>
                 <Col sm="12">
-                <h4>Unanswered Questions</h4>
+                {
+                this.props.questions
+                  .filter(f => this.props.loginUser.questions.some(s => s.id === f.id))
+                  .map(m => (<QuestionListItem question={m}></QuestionListItem>))
+              }
                 </Col>
             </Row>
           </TabPane>
           <TabPane tabId="2">
             <Row>
                 <Col sm="12">
-                <h4>Unanswered Questions</h4>
+                {
+                this.props.questions
+                  .filter(f => this.props.loginUser.questions.some(s => s.id === f.id))
+                  .map(m => (<QuestionListItem question={m}></QuestionListItem>))
+                }
                 </Col>
             </Row>
           </TabPane>

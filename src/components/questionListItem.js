@@ -1,1 +1,3 @@
-export const Question = () => "Poll";
+
+
+export const QuestionListItem = () => '';

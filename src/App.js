@@ -14,11 +14,16 @@ import './App.css';
 import { NewQuestion } from './components/newQuestion';
 import { LeaderBoard } from './components/leaderBoard';
 import Login from './components/login';
-import { retrieveUsers } from './actions/users'
+import { retrieveUsers } from './actions/users';
+import { retrieveQuestions } from './actions/questions';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
   componentDidMount() {
-    this.props.dispatch(retrieveUsers());
+      this.props.dispatch(retrieveUsers());
+      this.props.dispatch(retrieveQuestions());
   }  
   render() {
     return (
@@ -55,7 +60,7 @@ class App extends Component {
                   )}>
                   </Route>
                 </Fragment>
-                ) : true ?
+                ) : this.props.initialDataLoad ?
                 (<Login></Login>)  
                 : 'Loading'
                 )}
@@ -67,5 +72,7 @@ class App extends Component {
 
 }
 
-export default connect(({ userState }) => ({ loginUser: userState.loginUser }))
+export default connect(({ userState, questionState }) => ({ 
+  initialDataLoad: userState.availableUsers !== undefined && questionState.questions !== undefined,
+  loginUser: userState.loginUser }))
 (App);

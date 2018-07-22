@@ -1,9 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 import { QuestionListItem } from './questionListItem';
 
-export default class QuestionDashboard extends React.Component {
+class QuestionDashboard extends React.Component {
   constructor(props) {
     super(props);
 
@@ -48,7 +49,7 @@ export default class QuestionDashboard extends React.Component {
                 this.props.questions
                   .filter(f => this.props.loginUser.questions.some(s => s.id === f.id))
                   .map(m => (<QuestionListItem question={m}></QuestionListItem>))
-              }
+                }
                 </Col>
             </Row>
           </TabPane>
@@ -68,3 +69,6 @@ export default class QuestionDashboard extends React.Component {
     );
   }
 }
+
+export default connect(({ userState: { loginUser }, questionState: { questions } }) => ({ loginUser, questions }))
+  (QuestionDashboard);

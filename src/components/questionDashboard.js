@@ -47,7 +47,7 @@ class QuestionDashboard extends React.Component {
                 <Col sm="12">
                 {
                 this.props.questions
-                  .filter(f => this.props.loginUser.questions.some(s => s.id === f.id))
+                  .filter(f => !this.props.loginUser.questions.some(s => s == f.id))
                   .map(m => (<QuestionListItem question={m}></QuestionListItem>))
                 }
                 </Col>
@@ -58,7 +58,7 @@ class QuestionDashboard extends React.Component {
                 <Col sm="12">
                 {
                 this.props.questions
-                  .filter(f => this.props.loginUser.questions.some(s => s.id === f.id))
+                  .filter(f => this.props.loginUser.questions.some(s => s == f.id))
                   .map(m => (<QuestionListItem question={m}></QuestionListItem>))
                 }
                 </Col>

@@ -10,7 +10,7 @@ const setAvaliableUsers = (users) => ({
 
 export const retrieveUsers = () => (dispatch) => {
     _getUsers()
-    .then(users => dispatch(setAvaliableUsers(users)));
+    .then(users => dispatch(setAvaliableUsers(Object.values(users))));
 };
 
 export const loginUser = (selectedUser) => ({

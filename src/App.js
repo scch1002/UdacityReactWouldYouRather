@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom'
 import {
   Collapse,
   Navbar,
@@ -22,40 +23,44 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/">Home</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/add">New Question</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/leaderboard">Leader Board</NavLink>
-              </NavItem>
-            </Nav>
-          </Navbar>
-          {( this.props.loginUser !== undefined ? 
-          (
+        <BrowserRouter>
           <Fragment>
-            <Route exact path='/' render={() => (
-                <QuestionDashboard />
-            )}>
-            </Route>
-            <Route path='/add' render={() => (
-                <NewQuestion />
-            )}>
-            </Route>
-            <Route path='/leaderboard' render={() => (
-                <LeaderBoard />
-            )}>
-            </Route>
-          </Fragment>
-          ) : true ?
-          (<Login></Login>)  
-          : 'Loading'
-          )}
+            <Navbar color="light" light expand="md">
+              <NavbarBrand tag={Link} to='/'>reactstrap</NavbarBrand>
+                <Nav className="ml-auto" navbar>
+                  <NavItem>
+                    <NavLink tag={Link} to='/'>Home</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink tag={Link} to='/add'>New Question</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink tag={Link} to='/leaderboard'>Leader Board</NavLink>
+                  </NavItem>
+                </Nav>
+              </Navbar>
+              {( this.props.loginUser !== undefined ? 
+                (
+                <Fragment>
+                  <Route exact path='/' render={() => (
+                      <QuestionDashboard />
+                  )}>
+                  </Route>
+                  <Route path='/add' render={() => (
+                      <NewQuestion />
+                  )}>
+                  </Route>
+                  <Route path='/leaderboard' render={() => (
+                      <LeaderBoard />
+                  )}>
+                  </Route>
+                </Fragment>
+                ) : true ?
+                (<Login></Login>)  
+                : 'Loading'
+                )}
+            </Fragment>
+          </BrowserRouter>
       </div>
     );
   }

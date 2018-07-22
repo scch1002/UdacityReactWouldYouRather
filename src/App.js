@@ -14,6 +14,7 @@ import './App.css';
 import { NewQuestion } from './components/newQuestion';
 import { LeaderBoard } from './components/leaderBoard';
 import Login from './components/login';
+import QuestionDetail from './components/questionDetail';
 import { retrieveUsers } from './actions/users';
 import { retrieveQuestions } from './actions/questions';
 
@@ -59,6 +60,8 @@ class App extends Component {
                       <LeaderBoard />
                   )}>
                   </Route>
+                  <Route path='/questions/:question_id' component={QuestionDetail}>
+                  </Route>
                 </Fragment>
                 ) : this.props.initialDataLoad ?
                 (<Login></Login>)  
@@ -68,6 +71,7 @@ class App extends Component {
           </BrowserRouter>
       </div>
     );
+
   }
 
 }

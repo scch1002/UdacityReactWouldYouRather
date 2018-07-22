@@ -13,8 +13,8 @@ export const QuestionListItem = connect(
             <CardHeader>{author.name} asks</CardHeader>
             <CardBody>
                 <CardTitle>Would you rather</CardTitle>
-                <CardText>A description.</CardText>
-                <Button tag={Link} to='/add'>View Pull</Button>
+                <CardText>A description.</CardText> 
+                <Button tag={Link} to={`/questions/${props.question.id}`}>View Pull</Button>
             </CardBody>
         </Card>);
     }

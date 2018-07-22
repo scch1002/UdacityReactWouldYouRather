@@ -44,10 +44,10 @@ class QuestionDetails extends Component {
                         </Col>
                         <Col>
                             <CardBody>
-                                <CardTitle>Option 1</CardTitle>
+                                <CardTitle>{question.optionOne.text}</CardTitle>
                             </CardBody>
                             <CardBody>
-                                <CardTitle>Option 2</CardTitle>
+                                <CardTitle>{question.optionTwo.text}</CardTitle>
                             </CardBody>
                         </Col>
                     </Row>

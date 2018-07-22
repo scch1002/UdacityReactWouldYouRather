@@ -9,10 +9,10 @@ import {
   Nav,
   NavItem,
   NavLink } from 'reactstrap';
-import { QuestionDashboard } from './components/questionDashboard';
+import QuestionDashboard from './components/questionDashboard';
 import './App.css';
 import { NewQuestion } from './components/newQuestion';
-import { LeaderBoard } from './components/leaderBoard.js';
+import { LeaderBoard } from './components/leaderBoard';
 import Login from './components/login';
 import { retrieveUsers } from './actions/users'
 

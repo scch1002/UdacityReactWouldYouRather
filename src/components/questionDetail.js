@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardHeader, CardBody,
     CardTitle, Form, FormGroup, Label, Input, Row, Col, Button } from 'reactstrap';
-
+import QuestionPoll from './questionPoll';
+import QuestionResult from './questionResult';
 
 class QuestionDetails extends Component {
     render() {
@@ -12,26 +13,11 @@ class QuestionDetails extends Component {
 
         if (questionAnswer === undefined) {
             return (
-                <QuestionPoll >
+                <QuestionPoll />
             );
         } else {
             return (
-                <Card>
-                    <CardHeader>{`Asked by ${author.name}`}</CardHeader>
-                    <Row>
-                        <Col>
-                            User Picture
-                        </Col>
-                        <Col>
-                            <CardBody>
-                                <CardTitle>{question.optionOne.text}</CardTitle>
-                            </CardBody>
-                            <CardBody>
-                                <CardTitle>{question.optionTwo.text}</CardTitle>
-                            </CardBody>
-                        </Col>
-                    </Row>
-                </Card>
+                <QuestionResult />
             );
         }
     }

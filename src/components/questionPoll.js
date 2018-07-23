@@ -53,4 +53,4 @@ class QuestionPoll extends Component {
 export default connect(
     ({ userState: { availableUsers, loginUser }, questionState: { questions }}) =>
         ({ availableUsers, loginUser, questions })
-)(QuestionDetails);
+)(QuestionPoll);

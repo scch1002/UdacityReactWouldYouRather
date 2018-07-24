@@ -7,7 +7,7 @@ import { answerQuestion } from '../actions/users';
 class QuestionResult extends Component {
     render() {
         let question = this.props.questions.find(f => f.id === this.props.questionId);
-        let author = this.props.availableUsers.find(f => f.id === question.author);
+        let author = this.props.users.find(f => f.id === question.author);
         let questionAnswer = this.props.loginUser.answers[question.id];
 
         return (
@@ -32,6 +32,6 @@ class QuestionResult extends Component {
 }
 
 export default connect(
-    ({ userState: { availableUsers, loginUser }, questionState: { questions }}) =>
-        ({ availableUsers, loginUser, questions })
+    ({ users, loginUser, questions }) =>
+        ({ users, loginUser, questions })
 )(QuestionResult);

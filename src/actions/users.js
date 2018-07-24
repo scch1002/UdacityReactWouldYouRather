@@ -26,7 +26,7 @@ export const loginUser = (selectedUser) => ({
 });
 
 export const answerQuestion = (qid, answer) => (dispatch, getState) => {
-    let { userState: { loginUser }} = getState();
-    _saveQuestionAnswer({ authedUser: loginUser.id, qid, answer})
+    let { loginUser } = getState();
+    _saveQuestionAnswer({ authedUser: loginUser.userInfo.id, qid, answer})
         .then(t => dispatch(setAnswerQuestion(qid, answer)));
 };

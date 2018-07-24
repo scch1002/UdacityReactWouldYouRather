@@ -22,6 +22,6 @@ class QuestionDetail extends Component {
 }
 
 export default connect(
-    ({ answers }) =>
+    ({ loginUser: { answers }}) =>
         ({ answers })
 )(QuestionDetail);

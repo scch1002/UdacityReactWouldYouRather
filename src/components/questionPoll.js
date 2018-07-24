@@ -21,7 +21,7 @@ class QuestionPoll extends Component {
     }
     render() {
         let question = this.props.questions.find(f => f.id === this.props.questionId);
-        let author = this.props.availableUsers.find(f => f.id === question.author);
+        let author = this.props.users.find(f => f.id === question.author);
 
         return (
             <Card>
@@ -52,6 +52,6 @@ class QuestionPoll extends Component {
 }
 
 export default connect(
-    ({ userState: { availableUsers, loginUser }, questionState: { questions }}) =>
-        ({ availableUsers, loginUser, questions })
+    ({ users, loginUser , questions }) =>
+        ({ users, loginUser, questions })
 )(QuestionPoll);

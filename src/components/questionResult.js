@@ -4,9 +4,9 @@ import { Card, CardHeader, CardBody,
     CardTitle, Form, FormGroup, Label, Input, Row, Col, Button } from 'reactstrap';
 import { answerQuestion } from '../actions/users';
 
-class QuestionDetails extends Component {
+class QuestionResult extends Component {
     render() {
-        let question = this.props.questions.find(f => f.id === this.props.match.params.question_id);
+        let question = this.props.questions.find(f => f.id === this.props.questionId);
         let author = this.props.availableUsers.find(f => f.id === question.author);
         let questionAnswer = this.props.loginUser.answers[question.id];
 
@@ -34,4 +34,4 @@ class QuestionDetails extends Component {
 export default connect(
     ({ userState: { availableUsers, loginUser }, questionState: { questions }}) =>
         ({ availableUsers, loginUser, questions })
-)(QuestionDetails);
+)(QuestionResult);

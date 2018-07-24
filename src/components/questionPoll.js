@@ -5,22 +5,23 @@ import { Card, CardHeader, CardBody,
 import { answerQuestion } from '../actions/users';
 
 class QuestionPoll extends Component {
+    state = {
+        selectedOption: 'optionOne'  
+    }
     constructor(props) {
         super(props);
-        this.setState({
-            selectedOption: option1
-        });
     }
     answerSelected = (event) => {
-
+        this.setState({
+            selectedOption: event.target.value
+        });
     }
     saveAnswer = () => {
-
+        this.props.dispatch(answerQuestion(this.props.questionId, this.state.selectedOption))
     }
     render() {
-        let question = this.props.questions.find(f => f.id === this.props.match.params.question_id);
+        let question = this.props.questions.find(f => f.id === this.props.questionId);
         let author = this.props.availableUsers.find(f => f.id === question.author);
-        let questionAnswer = this.props.loginUser.answers[question.id];
 
         return (
             <Card>
@@ -31,18 +32,18 @@ class QuestionPoll extends Component {
                         <FormGroup tag="fieldset">
                             <FormGroup check>
                                 <Label check>
-                                <Input type="radio" name="radio1" />{' '}
+                                <Input type="radio" name="radio1" value='optionOne' checked />{' '}
                                 Option one is this and that—be sure to include why it's great
                                 </Label>
                             </FormGroup>
                             <FormGroup check>
                                 <Label check>
-                                <Input type="radio" name="radio1" />{' '}
+                                <Input type="radio" name="radio1" value='optionTwo' />{' '}
                                 Option two can be something else and selecting it will deselect option one
                                 </Label>
                             </FormGroup>
                         </FormGroup>
-                        <Button onClick={}>Submit</Button>
+                        <Button onClick={this.saveAnswer}>Submit</Button>
                     </Form>
                 </CardBody>
             </Card>  
@@ -53,4 +54,4 @@ class QuestionPoll extends Component {
 export default connect(
     ({ userState: { availableUsers, loginUser }, questionState: { questions }}) =>
         ({ availableUsers, loginUser, questions })
-)(QuestionDetails);
+)(QuestionPoll);

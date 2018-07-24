@@ -56,7 +56,7 @@ class Login extends Component {
 }
 
 export default connect(
-    (({ userState: { availableUsers, loginUser } }) => availableUsers !== undefined 
-        ? ({ users: availableUsers }) 
+    (({ users }) => users !== undefined 
+        ? ({ users }) 
         : { users: undefined })
 )(Login);

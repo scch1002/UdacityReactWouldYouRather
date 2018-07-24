@@ -45,7 +45,7 @@ class App extends Component {
                   </NavItem>
                 </Nav>
               </Navbar>
-              {( this.props.loginUser !== undefined ? 
+              {( this.props.userInfo.id !== undefined ? 
                 (
                 <Fragment>
                   <Route exact path='/' render={() => (
@@ -71,12 +71,10 @@ class App extends Component {
           </BrowserRouter>
       </div>
     );
-
   }
-
 }
 
-export default connect(({ userState, questionState }) => ({ 
-  initialDataLoad: userState.availableUsers !== undefined && questionState.questions !== undefined,
-  loginUser: userState.loginUser }))
+export default connect(({ users, questions, loginUser: { userInfo } }) => ({ 
+  initialDataLoad: users !== undefined && questions !== undefined,
+  userInfo }))
 (App);

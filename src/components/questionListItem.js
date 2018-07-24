@@ -5,10 +5,10 @@ import { Card, Button, CardHeader, CardBody,
     CardTitle, CardText } from 'reactstrap';
 
 export const QuestionListItem = connect(
-    ({ userState: { availableUsers }}) => ({ availableUsers })
+    ({ users }) => ({ users })
 )((props) => 
     {
-        let author = props.availableUsers.find(f => f.id === props.question.author);
+        let author = props.users.find(f => f.id === props.question.author);
         return (<Card>
             <CardHeader>{author.name} asks</CardHeader>
             <CardBody>

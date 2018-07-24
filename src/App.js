@@ -11,7 +11,7 @@ import {
   NavLink } from 'reactstrap';
 import QuestionDashboard from './components/questionDashboard';
 import './App.css';
-import { NewQuestion } from './components/newQuestion';
+import NewQuestion from './components/newQuestion';
 import { LeaderBoard } from './components/leaderBoard';
 import Login from './components/login';
 import QuestionDetail from './components/questionDetail';
@@ -52,9 +52,7 @@ class App extends Component {
                       <QuestionDashboard />
                   )}>
                   </Route>
-                  <Route path='/add' render={() => (
-                      <NewQuestion />
-                  )}>
+                  <Route path='/add' component={NewQuestion}>
                   </Route>
                   <Route path='/leaderboard' render={() => (
                       <LeaderBoard />

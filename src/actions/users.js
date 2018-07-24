@@ -2,6 +2,7 @@ import { _getUsers, _saveQuestionAnswer  } from '../utils/_DATA';
 
 export const RETRIEVE_USER = 'USERS_RETRIEVE_USERS';
 export const LOGIN_USER = 'USERS_LOGIN_USER';
+export const LOGOUT_USER = 'USERS_LOGOUT_USER';
 export const ANSWER_QUESTION = 'USERS_ANSWER_QUESTION'
 
 const setAvaliableUsers = (users) => ({
@@ -23,6 +24,10 @@ export const retrieveUsers = () => (dispatch) => {
 export const loginUser = (selectedUser) => ({
     type: LOGIN_USER,
     loginUser: selectedUser
+});
+
+export const logoutUser = () => ({
+    type: LOGOUT_USER
 });
 
 export const answerQuestion = (qid, answer) => (dispatch, getState) => {

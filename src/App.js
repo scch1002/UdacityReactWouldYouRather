@@ -20,6 +20,7 @@ import Login from './components/login';
 import QuestionDetail from './components/questionDetail';
 import { retrieveUsers } from './actions/users';
 import { retrieveQuestions } from './actions/questions';
+import { AppNavigation } from './appNavigation';
 
 class App extends Component {
   constructor(props) {
@@ -34,20 +35,7 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <Fragment>
-            <Navbar color="light" light expand="md">
-              <NavbarBrand tag={Link} to='/'>reactstrap</NavbarBrand>
-                <Nav className="ml-auto" navbar>
-                  <NavItem>
-                    <NavLink tag={Link} to='/'>Home</NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink tag={Link} to='/add'>New Question</NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink tag={Link} to='/leaderboard'>Leader Board</NavLink>
-                  </NavItem>
-                </Nav>
-              </Navbar>
+              <AppNavigation userInfo={this.props.userInfo} />
               <Container className="App-Container-Margin">
                 <Row>
                   <Col sm="12" md={{ size: 10, offset: 1 }}>

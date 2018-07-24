@@ -1,4 +1,4 @@
-import { ANSWER_QUESTION, LOGIN_USER } from '../../actions/users';
+import { ANSWER_QUESTION, LOGIN_USER, LOGOUT_USER } from '../../actions/users';
 
 export default function answers(state = {}, action) {
     switch(action.type) {
@@ -12,6 +12,8 @@ export default function answers(state = {}, action) {
                 ...state,
                 [action.questionId]: action.answer
             }
+        case LOGOUT_USER:
+            return {};
         default:
             return state;
     }

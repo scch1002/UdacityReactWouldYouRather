@@ -8,15 +8,19 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink } from 'reactstrap';
+  NavLink,
+  Container,
+  Row,
+  Col } from 'reactstrap';
 import QuestionDashboard from './components/questionDashboard';
 import './App.css';
-import { NewQuestion } from './components/newQuestion';
+import NewQuestion from './components/newQuestion';
 import { LeaderBoard } from './components/leaderBoard';
 import Login from './components/login';
 import QuestionDetail from './components/questionDetail';
 import { retrieveUsers } from './actions/users';
 import { retrieveQuestions } from './actions/questions';
+import { AppNavigation } from './appNavigation';
 
 class App extends Component {
   constructor(props) {
@@ -31,52 +35,41 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <Fragment>
-            <Navbar color="light" light expand="md">
-              <NavbarBrand tag={Link} to='/'>reactstrap</NavbarBrand>
-                <Nav className="ml-auto" navbar>
-                  <NavItem>
-                    <NavLink tag={Link} to='/'>Home</NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink tag={Link} to='/add'>New Question</NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink tag={Link} to='/leaderboard'>Leader Board</NavLink>
-                  </NavItem>
-                </Nav>
-              </Navbar>
-              {( this.props.loginUser !== undefined ? 
-                (
-                <Fragment>
-                  <Route exact path='/' render={() => (
-                      <QuestionDashboard />
-                  )}>
-                  </Route>
-                  <Route path='/add' render={() => (
-                      <NewQuestion />
-                  )}>
-                  </Route>
-                  <Route path='/leaderboard' render={() => (
-                      <LeaderBoard />
-                  )}>
-                  </Route>
-                  <Route path='/questions/:question_id' component={QuestionDetail}>
-                  </Route>
-                </Fragment>
-                ) : this.props.initialDataLoad ?
-                (<Login></Login>)  
-                : 'Loading'
-                )}
+              <AppNavigation userInfo={this.props.userInfo} />
+              <Container className="App-Container-Margin">
+                <Row>
+                  <Col sm="12" md={{ size: 10, offset: 1 }}>
+                    {( this.props.userInfo.id !== undefined ? 
+                      (
+                      <Fragment>
+                        <Route exact path='/' render={() => (
+                            <QuestionDashboard />
+                        )}>
+                        </Route>
+                        <Route path='/add' component={NewQuestion}>
+                        </Route>
+                        <Route path='/leaderboard' render={() => (
+                            <LeaderBoard />
+                        )}>
+                        </Route>
+                        <Route path='/questions/:question_id' component={QuestionDetail}>
+                        </Route>
+                      </Fragment>
+                      ) : this.props.initialDataLoad ?
+                      (<Login></Login>)  
+                      : 'Loading'
+                      )}
+                  </Col>
+                </Row>
+            </Container>
             </Fragment>
           </BrowserRouter>
       </div>
     );
-
   }
-
 }
 
-export default connect(({ userState, questionState }) => ({ 
-  initialDataLoad: userState.availableUsers !== undefined && questionState.questions !== undefined,
-  loginUser: userState.loginUser }))
+export default connect(({ users, questions, loginUser: { userInfo } }) => ({ 
+  initialDataLoad: users !== undefined && questions !== undefined,
+  userInfo }))
 (App);

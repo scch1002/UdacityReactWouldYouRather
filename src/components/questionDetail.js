@@ -5,25 +5,23 @@ import { Card, CardHeader, CardBody,
 import QuestionPoll from './questionPoll';
 import QuestionResult from './questionResult';
 
-class QuestionDetails extends Component {
+class QuestionDetail extends Component {
     render() {
-        let question = this.props.questions.find(f => f.id === this.props.match.params.question_id);
-        let author = this.props.availableUsers.find(f => f.id === question.author);
-        let questionAnswer = this.props.loginUser.answers[this.props.match.params.question_id];
+        let questionAnswer = this.props.answers[this.props.match.params.question_id];
 
         if (questionAnswer === undefined) {
             return (
-                <QuestionPoll />
+                <QuestionPoll questionId={this.props.match.params.question_id} />
             );
         } else {
             return (
-                <QuestionResult />
+                <QuestionResult questionId={this.props.match.params.question_id} />
             );
         }
     }
 }
 
 export default connect(
-    ({ userState: { availableUsers, loginUser }, questionState: { questions }}) =>
-        ({ availableUsers, loginUser, questions })
-)(QuestionDetails);
+    ({ loginUser: { answers }}) =>
+        ({ answers })
+)(QuestionDetail);

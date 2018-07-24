@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem  } from 'reactstrap';
+    CardTitle, CardSubtitle, CardHeader, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Row, Col, Form, FormGroup } from 'reactstrap';
 import { loginUser } from '../actions/users';
+import './login.css'
+import logo from '../logo.svg'
 
 class Login extends Component {   
     constructor(props) {
@@ -20,7 +22,7 @@ class Login extends Component {
     }
     onSelectLoginUser = (event) => {
         this.setState({
-            selectedUser: this.props.users.find(f => f.id === event.target.value)
+            selectedUser: this.props.users.find(f => f.id === event.currentTarget.value)
         });
     }
     loginUser = () => {
@@ -29,21 +31,24 @@ class Login extends Component {
     render() {
         return (
             <Card>
-                <CardBody>
+                <CardHeader>
                     <CardTitle>Welcome to the Would You Rather App!</CardTitle>
                     <CardSubtitle>Please sign in to continue</CardSubtitle>
-                </CardBody>
-                <CardImg top width="318" height="180" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+                </CardHeader>
+                <CardImg top width="318" height="180" src={logo} alt="Card image cap" />
                 <CardBody>
                     <CardTitle>Sign In</CardTitle>
-                    <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}> 
+                    <Dropdown className="User-DropDown" isOpen={this.state.dropdownOpen} toggle={this.toggle}> 
                         <DropdownToggle caret>
                             { this.state.selectedUser !== undefined ? this.state.selectedUser.name : 'Select User'}
                         </DropdownToggle>
                         <DropdownMenu>
                             {this.props.users !== undefined ? this.props.users.map(m => 
                                 m !== undefined ?
-                                <DropdownItem onClick={this.onSelectLoginUser} value={m.id}>{m.name}</DropdownItem>
+                                <DropdownItem onClick={this.onSelectLoginUser} value={m.id}>
+                                    <img alt='User Avatar' />
+                                    {m.name}
+                                </DropdownItem>
                                 : ''
                             ) : ''}
                         </DropdownMenu>
@@ -56,7 +61,7 @@ class Login extends Component {
 }
 
 export default connect(
-    (({ userState: { availableUsers, loginUser } }) => availableUsers !== undefined 
-        ? ({ users: availableUsers }) 
+    (({ users }) => users !== undefined 
+        ? ({ users }) 
         : { users: undefined })
 )(Login);

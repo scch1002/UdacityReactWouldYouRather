@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col, Container } from 'reactstrap';
 import classnames from 'classnames';
 import { QuestionListItem } from './questionListItem';
 
@@ -22,7 +22,7 @@ class QuestionDashboard extends React.Component {
   }
   render() {
     return (
-      <div>
+      <Fragment>
         <Nav tabs>
           <NavItem>
             <NavLink
@@ -65,10 +65,10 @@ class QuestionDashboard extends React.Component {
             </Row>
           </TabPane>
         </TabContent>
-      </div>
+      </Fragment>
     );
   }
 }
 
-export default connect(({ userState: { loginUser }, questionState: { questions } }) => ({ loginUser, questions }))
+export default connect(({ loginUser, questions }) => ({ loginUser, questions }))
   (QuestionDashboard);

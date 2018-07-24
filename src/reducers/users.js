@@ -1,17 +1,11 @@
-import { RETRIEVE_USER, LOGIN_USER } from '../actions/users';
+import { RETRIEVE_USER } from '../actions/users';
 
-export default function userState(state = {}, action) {
+export default function users(state = [], action) {
     switch(action.type) {
         case RETRIEVE_USER:
-            return {
-                loginUser: state.loginUser,
-                availableUsers: action.availableUsers
-            }
-        case LOGIN_USER:
-            return {
-                loginUser: action.loginUser,
-                availableUsers: state.availableUsers
-            }
+            return [
+                ...action.availableUsers
+            ]
         default:
             return state;
     }

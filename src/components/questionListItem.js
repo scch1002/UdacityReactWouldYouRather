@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Card, Button, CardHeader, CardBody,
     CardTitle, CardText } from 'reactstrap';
+import './questionListItem.css';
 
 export const QuestionListItem = connect(
-    ({ userState: { availableUsers }}) => ({ availableUsers })
+    ({ users }) => ({ users })
 )((props) => 
     {
-        let author = props.availableUsers.find(f => f.id === props.question.author);
-        return (<Card>
+        let author = props.users.find(f => f.id === props.question.author);
+        return (<Card className="questionListItem">
             <CardHeader>{author.name} asks</CardHeader>
             <CardBody>
                 <CardTitle>Would you rather</CardTitle>

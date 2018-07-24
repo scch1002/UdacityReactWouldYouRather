@@ -2,6 +2,7 @@ import { _getUsers, _saveQuestionAnswer  } from '../utils/_DATA';
 
 export const RETRIEVE_USER = 'USERS_RETRIEVE_USERS';
 export const LOGIN_USER = 'USERS_LOGIN_USER';
+export const LOGOUT_USER = 'USERS_LOGOUT_USER';
 export const ANSWER_QUESTION = 'USERS_ANSWER_QUESTION'
 
 const setAvaliableUsers = (users) => ({
@@ -9,10 +10,10 @@ const setAvaliableUsers = (users) => ({
         availableUsers: users
 });
 
-const setAnswerQuestion = (userId, answer) => ({
+const setAnswerQuestion = (questionId, answer) => ({
     type: ANSWER_QUESTION,
-    answer,
-    userId
+    questionId,
+    answer
 });
 
 export const retrieveUsers = () => (dispatch) => {
@@ -25,8 +26,12 @@ export const loginUser = (selectedUser) => ({
     loginUser: selectedUser
 });
 
-export const AnswerQuestion = (qid, answer) => (dispatch, getState) => {
-    let { userState: { loginUser }} = getState();
-    _saveQuestionAnswer(loginUser.id, qid, answer)
-        .then(t => dispatch(setAnswerQuestion(loginUser.id, answer)));
+export const logoutUser = () => ({
+    type: LOGOUT_USER
+});
+
+export const answerQuestion = (qid, answer) => (dispatch, getState) => {
+    let { loginUser } = getState();
+    _saveQuestionAnswer({ authedUser: loginUser.userInfo.id, qid, answer})
+        .then(t => dispatch(setAnswerQuestion(qid, answer)));
 };

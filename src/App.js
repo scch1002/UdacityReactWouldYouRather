@@ -8,7 +8,10 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink } from 'reactstrap';
+  NavLink,
+  Container,
+  Row,
+  Col } from 'reactstrap';
 import QuestionDashboard from './components/questionDashboard';
 import './App.css';
 import NewQuestion from './components/newQuestion';
@@ -45,26 +48,32 @@ class App extends Component {
                   </NavItem>
                 </Nav>
               </Navbar>
-              {( this.props.userInfo.id !== undefined ? 
-                (
-                <Fragment>
-                  <Route exact path='/' render={() => (
-                      <QuestionDashboard />
-                  )}>
-                  </Route>
-                  <Route path='/add' component={NewQuestion}>
-                  </Route>
-                  <Route path='/leaderboard' render={() => (
-                      <LeaderBoard />
-                  )}>
-                  </Route>
-                  <Route path='/questions/:question_id' component={QuestionDetail}>
-                  </Route>
-                </Fragment>
-                ) : this.props.initialDataLoad ?
-                (<Login></Login>)  
-                : 'Loading'
-                )}
+              <Container className="App-Container-Margin">
+                <Row>
+                  <Col sm="12" md={{ size: 10, offset: 1 }}>
+                    {( this.props.userInfo.id !== undefined ? 
+                      (
+                      <Fragment>
+                        <Route exact path='/' render={() => (
+                            <QuestionDashboard />
+                        )}>
+                        </Route>
+                        <Route path='/add' component={NewQuestion}>
+                        </Route>
+                        <Route path='/leaderboard' render={() => (
+                            <LeaderBoard />
+                        )}>
+                        </Route>
+                        <Route path='/questions/:question_id' component={QuestionDetail}>
+                        </Route>
+                      </Fragment>
+                      ) : this.props.initialDataLoad ?
+                      (<Login></Login>)  
+                      : 'Loading'
+                      )}
+                  </Col>
+                </Row>
+            </Container>
             </Fragment>
           </BrowserRouter>
       </div>

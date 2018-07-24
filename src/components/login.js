@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem  } from 'reactstrap';
+    CardTitle, CardSubtitle, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Row, Col  } from 'reactstrap';
 import { loginUser } from '../actions/users';
 
 class Login extends Component {   

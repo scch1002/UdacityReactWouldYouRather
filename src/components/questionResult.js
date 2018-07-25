@@ -13,19 +13,21 @@ class QuestionResult extends Component {
         return (
             <Card>
                 <CardHeader>{`Asked by ${author.name}`}</CardHeader>
-                <Row>
-                    <Col>
-                        User Picture
-                    </Col>
-                    <Col>
-                        <CardBody>
-                            <CardTitle>{question.optionOne.text}</CardTitle>
-                        </CardBody>
-                        <CardBody>
-                            <CardTitle>{question.optionTwo.text}</CardTitle>
-                        </CardBody>
-                    </Col>
-                </Row>
+                <CardBody>
+                    <Row>
+                        <Col>
+                            <img src={author.avatarURL} />
+                        </Col>
+                        <Col>
+                            <CardBody>
+                                <CardTitle>{question.optionOne.text}</CardTitle>
+                            </CardBody>
+                            <CardBody>
+                                <CardTitle>{question.optionTwo.text}</CardTitle>
+                            </CardBody>
+                        </Col>
+                    </Row>
+                </CardBody>
             </Card>
         );
     }

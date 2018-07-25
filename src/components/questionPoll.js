@@ -27,24 +27,31 @@ class QuestionPoll extends Component {
             <Card>
                 <CardHeader>{`${author.name} asks:`}</CardHeader>
                 <CardBody>
-                    <CardTitle>Would You Rather ...</CardTitle>
-                    <Form>
-                        <FormGroup tag="fieldset">
-                            <FormGroup check>
-                                <Label check>
-                                <Input type="radio" name="radio1" value='optionOne' checked />
-                                {question.optionOne.text}
-                                </Label>
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                <Input type="radio" name="radio1" value='optionTwo' />
-                                {question.optionTwo.text}
-                                </Label>
-                            </FormGroup>
-                        </FormGroup>
-                        <Button onClick={this.saveAnswer}>Submit</Button>
-                    </Form>
+                    <Row>
+                        <Col>
+                            <img src={author.avatarURL} alt='user avatar' />
+                        </Col>
+                        <Col>
+                            <CardTitle>Would You Rather ...</CardTitle>
+                            <Form>
+                                <FormGroup tag="fieldset">
+                                    <FormGroup check>
+                                        <Label check>
+                                        <Input type="radio" name="radio1" value='optionOne' checked />
+                                        {question.optionOne.text}
+                                        </Label>
+                                    </FormGroup>
+                                    <FormGroup check>
+                                        <Label check>
+                                        <Input type="radio" name="radio1" value='optionTwo' />
+                                        {question.optionTwo.text}
+                                        </Label>
+                                    </FormGroup>
+                                </FormGroup>
+                                <Button onClick={this.saveAnswer}>Submit</Button>
+                            </Form>
+                        </Col>
+                    </Row>
                 </CardBody>
             </Card>  
         );

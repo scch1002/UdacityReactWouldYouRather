@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Card, Button, CardHeader, CardBody,
-    CardTitle, CardText } from 'reactstrap';
+    CardTitle, CardText, Row, Col} from 'reactstrap';
 import './questionListItem.css';
 
 export const QuestionListItem = connect(
@@ -13,9 +13,22 @@ export const QuestionListItem = connect(
         return (<Card className="questionListItem">
             <CardHeader>{author.name} asks</CardHeader>
             <CardBody>
-                <CardTitle>Would you rather</CardTitle>
-                <CardText>A description.</CardText> 
-                <Button tag={Link} to={`/questions/${props.question.id}`}>View Pull</Button>
+                <Row>
+                    <Col>
+                        <img alt='avatar image' />
+                    </Col>
+                    <Col>
+                        <CardTitle tag='strong'>Would you rather</CardTitle>
+                        <CardText>
+                            {props.question.optionOne.text}
+                                <br />
+                                or
+                                <br />
+                            {props.question.optionTwo.text}
+                        </CardText>
+                        <Button tag={Link} to={`/questions/${props.question.id}`}>View Pull</Button>
+                    </Col>
+                </Row>
             </CardBody>
         </Card>);
     }

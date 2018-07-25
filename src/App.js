@@ -15,7 +15,7 @@ import {
 import QuestionDashboard from './components/questionDashboard';
 import './App.css';
 import NewQuestion from './components/newQuestion';
-import { LeaderBoard } from './components/leaderBoard';
+import LeaderBoard from './components/leaderBoard';
 import Login from './components/login';
 import QuestionDetail from './components/questionDetail';
 import { retrieveUsers } from './actions/users';
@@ -42,15 +42,11 @@ class App extends Component {
                     {( this.props.userInfo.id !== undefined ? 
                       (
                       <Fragment>
-                        <Route exact path='/' render={() => (
-                            <QuestionDashboard />
-                        )}>
+                        <Route exact path='/' component={QuestionDashboard}>
                         </Route>
                         <Route path='/add' component={NewQuestion}>
                         </Route>
-                        <Route path='/leaderboard' render={() => (
-                            <LeaderBoard />
-                        )}>
+                        <Route path='/leaderboard' component={LeaderBoard}>
                         </Route>
                         <Route path='/questions/:question_id' component={QuestionDetail}>
                         </Route>

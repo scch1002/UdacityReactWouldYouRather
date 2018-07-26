@@ -10,10 +10,11 @@ const setAvaliableUsers = (users) => ({
         availableUsers: users
 });
 
-const setAnswerQuestion = (questionId, answer) => ({
+const setAnswerQuestion = (questionId, answer, userId) => ({
     type: ANSWER_QUESTION,
     questionId,
-    answer
+    answer,
+    userId
 });
 
 export const retrieveUsers = () => (dispatch) => {
@@ -33,5 +34,5 @@ export const logoutUser = () => ({
 export const answerQuestion = (qid, answer) => (dispatch, getState) => {
     let { loginUser } = getState();
     _saveQuestionAnswer({ authedUser: loginUser.userInfo.id, qid, answer})
-        .then(t => dispatch(setAnswerQuestion(qid, answer)));
+        .then(t => dispatch(setAnswerQuestion(qid, answer, loginUser.userInfo.id)));
 };

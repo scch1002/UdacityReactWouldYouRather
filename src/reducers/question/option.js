@@ -1,5 +1,5 @@
 import { ANSWER_QUESTION } from '../../actions/users';
-import { RETRIEVE_QUESTIONS } from '../../actions/questions';
+import { RETRIEVE_QUESTIONS, ADD_NEW_QUESTION } from '../../actions/questions';
 import votes from './votes';
 
 export default (optionLable = 'optionOne') => (state = {}, action) => {
@@ -7,6 +7,11 @@ export default (optionLable = 'optionOne') => (state = {}, action) => {
         case RETRIEVE_QUESTIONS:
             return {
                 text: action.question[optionLable].text,
+                votes: votes(optionLable)(state.votes, action)
+            };
+        case ADD_NEW_QUESTION:
+            return {
+                text: action.newQuestion[optionLable].text,
                 votes: votes(optionLable)(state.votes, action)
             };
         case ANSWER_QUESTION:

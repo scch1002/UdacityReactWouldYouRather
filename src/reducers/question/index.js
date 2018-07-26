@@ -1,4 +1,4 @@
-import { RETRIEVE_QUESTIONS } from '../../actions/questions';
+import { RETRIEVE_QUESTIONS, ADD_NEW_QUESTION } from '../../actions/questions';
 import { ANSWER_QUESTION } from '../../actions/users';
 import option from './option';
 
@@ -9,6 +9,14 @@ export default function question(state = {}, action) {
                 id: action.question.id,
                 author: action.question.author,
                 timestamp: action.question.timestamp,
+                optionOne: option('optionOne')(state.optionOne, action),
+                optionTwo: option('optionTwo')(state.optionTwo, action)
+            }
+        case ADD_NEW_QUESTION:
+            return {
+                id: action.newQuestion.id,
+                author: action.newQuestion.author,
+                timestamp: action.newQuestion.timestamp,
                 optionOne: option('optionOne')(state.optionOne, action),
                 optionTwo: option('optionTwo')(state.optionTwo, action)
             }

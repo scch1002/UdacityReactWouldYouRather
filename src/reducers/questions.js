@@ -9,7 +9,7 @@ export default (state = [], action) => {
         case ADD_NEW_QUESTION:
             return [
                 ...state,
-                question({}, action.newQuestion)
+                question({}, action)
             ];
         case ANSWER_QUESTION:
             return state.map(m => m.id === action.questionId ? question(m, action) : m);

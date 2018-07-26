@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 import { Card, Button, CardHeader, CardBody,
     CardTitle, CardText, Row, Col } from 'reactstrap';
 
-export const LeaderBoardListItem = (props) => (<Card>
+export const LeaderBoardListItem = (props) =>  {
+        let answerArray = Object.values(props.user.answers);
+        return (<Card>
             <CardBody>
                 <Row>
                     <Col>
@@ -18,7 +20,7 @@ export const LeaderBoardListItem = (props) => (<Card>
                                 Answered questions
                             </Col>
                             <Col>
-                                3
+                                {Object.values(props.user.answers).length}
                             </Col>
                         </Row>
                         <Row>
@@ -26,15 +28,19 @@ export const LeaderBoardListItem = (props) => (<Card>
                                 Created questions
                             </Col>
                             <Col>
-                            4
+                                {props.user.questions.length}
                             </Col>
                         </Row>
                     </Col>
                     <Col>
                         <Card>
                             <CardHeader>Score</CardHeader>
+                            <CardBody>
+                                <CardTitle>{props.user.questions.length + answerArray.length}</CardTitle>
+                            </CardBody>
                         </Card>
                     </Col>
                 </Row>
             </CardBody>
-        </Card>);
+        </Card>)
+};

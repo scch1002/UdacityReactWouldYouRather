@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardHeader, CardBody,
-    CardTitle, Form, FormGroup, Label, Input, Row, Col, Button } from 'reactstrap';
+    CardText, CardTitle, Form, FormGroup, Label, Input, Row, Col, Button } from 'reactstrap';
 import { answerQuestion } from '../actions/users';
+import { AnswerResult } from './answerResultCard';
 
 class QuestionResult extends Component {
     render() {
@@ -19,12 +20,15 @@ class QuestionResult extends Component {
                             <img src={author.avatarURL} />
                         </Col>
                         <Col>
-                            <CardBody>
-                                <CardTitle>{question.optionOne.text}</CardTitle>
-                            </CardBody>
-                            <CardBody>
-                                <CardTitle>{question.optionTwo.text}</CardTitle>
-                            </CardBody>
+                            <CardTitle>Results:</CardTitle>
+                            <AnswerResult 
+                                numberVotes={question.optionOne.votes.length} 
+                                totalVotes={question.optionOne.votes.length + question.optionTwo.votes.length}
+                                loginUserAnswer={questionAnswer === 'optionOne'} />
+                            <AnswerResult 
+                                numberVotes={question.optionTwo.votes.length} 
+                                totalVotes={question.optionOne.votes.length + question.optionTwo.votes.length}
+                                loginUserAnswer={questionAnswer === 'optionTwo'} />
                         </Col>
                     </Row>
                 </CardBody>

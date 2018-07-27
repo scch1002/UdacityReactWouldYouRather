@@ -1,13 +1,8 @@
-
- import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React from 'react';
 import { Card, Button, CardHeader, CardBody,
     CardTitle, CardText, Row, Col } from 'reactstrap';
 
-export const LeaderBoardListItem = (props) =>  {
-        let answerArray = Object.values(props.user.answers);
-        return (<Card>
+export const LeaderBoardListItem = (props) => (<Card>
             <CardBody>
                 <Row>
                     <Col>
@@ -20,7 +15,7 @@ export const LeaderBoardListItem = (props) =>  {
                                 Answered questions
                             </Col>
                             <Col>
-                                {Object.values(props.user.answers).length}
+                                {props.user.answerCount}
                             </Col>
                         </Row>
                         <Row>
@@ -28,7 +23,7 @@ export const LeaderBoardListItem = (props) =>  {
                                 Created questions
                             </Col>
                             <Col>
-                                {props.user.questions.length}
+                                {props.user.questionCount}
                             </Col>
                         </Row>
                     </Col>
@@ -36,11 +31,11 @@ export const LeaderBoardListItem = (props) =>  {
                         <Card>
                             <CardHeader>Score</CardHeader>
                             <CardBody>
-                                <CardTitle>{props.user.questions.length + answerArray.length}</CardTitle>
+                                <CardTitle>{props.user.score}</CardTitle>
                             </CardBody>
                         </Card>
                     </Col>
                 </Row>
             </CardBody>
-        </Card>)
-};
+        </Card>
+);

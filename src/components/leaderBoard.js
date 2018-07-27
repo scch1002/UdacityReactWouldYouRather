@@ -7,6 +7,14 @@ import { LeaderBoardListItem } from './leaderBoardListItem';
 const LeaderBoard = (props) => (
       <Fragment>
         { props.users
+            .map(m => ({
+              avatarURL: m.avatarURL,
+              name: m.name,
+              questionCount: m.questions.length,
+              answerCount: Object.values(m.answers).length,
+              score: m.questions.length + Object.values(m.answers).length
+            }))
+            .sort((s1, s2) => s2.score - s1.score)
             .map(m => (<LeaderBoardListItem user={m}></LeaderBoardListItem>))
         }
       </Fragment>

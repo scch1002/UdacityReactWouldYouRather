@@ -19,12 +19,12 @@ const setAnswerQuestion = (questionId, answer, userId) => ({
 
 export const retrieveUsers = () => (dispatch) => {
     _getUsers()
-    .then(users => dispatch(setAvaliableUsers(Object.values(users))));
+    .then(users => dispatch(setAvaliableUsers(users)));
 };
 
-export const loginUser = (selectedUser) => ({
+export const loginUser = (selectedUserId) => ({
     type: LOGIN_USER,
-    loginUser: selectedUser
+    loginUser: selectedUserId
 });
 
 export const logoutUser = () => ({
@@ -32,7 +32,8 @@ export const logoutUser = () => ({
 });
 
 export const answerQuestion = (qid, answer) => (dispatch, getState) => {
-    let { loginUser } = getState();
-    _saveQuestionAnswer({ authedUser: loginUser.userInfo.id, qid, answer})
-        .then(t => dispatch(setAnswerQuestion(qid, answer, loginUser.userInfo.id)));
+    let { loginUser, users } = getState();
+    let userInfo = users[loginUser];
+    _saveQuestionAnswer({ authedUser: userInfo.id, qid, answer})
+        .then(t => dispatch(setAnswerQuestion(qid, answer, userInfo.id)));
 };

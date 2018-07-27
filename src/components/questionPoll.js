@@ -20,8 +20,8 @@ class QuestionPoll extends Component {
         this.props.dispatch(answerQuestion(this.props.questionId, this.state.selectedOption))
     }
     render() {
-        let question = this.props.questions.find(f => f.id === this.props.questionId);
-        let author = this.props.users.find(f => f.id === question.author);
+        let question = this.props.questions[this.props.questionId];
+        let author = this.props.users[question.author];
 
         return (
             <Card>

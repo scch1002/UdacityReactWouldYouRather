@@ -4,33 +4,31 @@ import { ADD_NEW_QUESTION } from '../actions/questions';
 export default function users(state = [], action) {
     switch(action.type) {
         case RETRIEVE_USER:
-            return [
+            return {
                 ...action.availableUsers
-            ]
+            }
         case ANSWER_QUESTION:
-            return state.map(m => m.id === action.userId ? 
-                {
-                    ...m,
+            return {
+                ...state,
+                [action.userId]: {
+                    ...state[action.userId],
                     answers: {
-                        ...m.answers,
-                        [action.questionId]: action.anwser
+                        ...state[action.userId].answers,
+                        [action.questionId]: action.answer
                     }
                 }
-                :
-                m
-            );
+            };
         case ADD_NEW_QUESTION:
-            return state.map(m => m.id === action.newQuestion.author ? 
-                {
-                    ...m,
+            return {
+                ...state,
+                [action.newQuestion.author]: {
+                    ...state[action.newQuestion.author],
                     questions: [
-                        ...m.questions,
+                        ...state[action.newQuestion.author].questions,
                         action.newQuestion.id
                     ]
                 }
-                :
-                m
-            );
+            };
         default:
             return state;
     }

@@ -7,9 +7,9 @@ import { AnswerResult } from './answerResultCard';
 
 class QuestionResult extends Component {
     render() {
-        let question = this.props.questions.find(f => f.id === this.props.questionId);
-        let author = this.props.users.find(f => f.id === question.author);
-        let questionAnswer = this.props.loginUser.answers[question.id];
+        let question = this.props.questions[this.props.questionId];
+        let author = this.props.users[question.author];
+        let questionAnswer = this.props.users[this.props.loginUser].answers[question.id];
 
         return (
             <Card>

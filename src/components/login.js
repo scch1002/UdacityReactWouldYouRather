@@ -22,11 +22,11 @@ class Login extends Component {
     }
     onSelectLoginUser = (event) => {
         this.setState({
-            selectedUser: this.props.users.find(f => f.id === event.currentTarget.value)
+            selectedUser: this.props.users[event.currentTarget.value]
         });
     }
     loginUser = () => {
-        this.props.dispatch(loginUser(this.state.selectedUser));
+        this.props.dispatch(loginUser(this.state.selectedUser.id));
     }
     render() {
         return (
@@ -43,7 +43,7 @@ class Login extends Component {
                             { this.state.selectedUser !== undefined ? this.state.selectedUser.name : 'Select User'}
                         </DropdownToggle>
                         <DropdownMenu>
-                            {this.props.users !== undefined ? this.props.users.map(m => 
+                            {this.props.users !== undefined ? Object.values(this.props.users).map(m => 
                                 m !== undefined ?
                                 <DropdownItem onClick={this.onSelectLoginUser} value={m.id}>
                                     <img alt='User Avatar' />
@@ -62,6 +62,6 @@ class Login extends Component {
 
 export default connect(
     (({ users }) => users !== undefined 
-        ? ({ users }) 
+        ? ({ users: users }) 
         : { users: undefined })
 )(Login);

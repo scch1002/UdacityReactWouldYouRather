@@ -6,11 +6,11 @@ import { LeaderBoardListItem } from './leaderBoardListItem';
 
 const LeaderBoard = (props) => (
       <Fragment>
-        {props.users
+        { props.users
             .map(m => (<LeaderBoardListItem user={m}></LeaderBoardListItem>))
         }
       </Fragment>
     );
 
-export default connect(({ users }) => ({ users }))
+export default connect(({ users }) => ({ users: Object.values(users) }))
   (LeaderBoard);

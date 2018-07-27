@@ -9,7 +9,7 @@ export const QuestionListItem = connect(
     ({ users }) => ({ users })
 )((props) => 
     {
-        let author = props.users.find(f => f.id === props.question.author);
+        let author = props.users[props.question.author];
         return (<Card className="questionListItem">
             <CardHeader>{author.name} asks</CardHeader>
             <CardBody>

@@ -55,4 +55,4 @@ class NewQuestion extends React.Component {
     }
 }
 
-export default connect(({ loginUser: { userInfo }}) => ({ userInfo }))(NewQuestion);
+export default connect(({ loginUser, users }) => ({ userInfo: users[loginUser] }))(NewQuestion);

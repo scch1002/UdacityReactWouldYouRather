@@ -70,5 +70,5 @@ class QuestionDashboard extends React.Component {
   }
 }
 
-export default connect(({ loginUser, questions }) => ({ loginUser, questions }))
+export default connect(({ loginUser, users, questions }) => ({ loginUser: users[loginUser], questions: Object.values(questions) }))
   (QuestionDashboard);

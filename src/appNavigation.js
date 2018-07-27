@@ -13,7 +13,7 @@ import {
     Col } from 'reactstrap';
 import { NavUserItem } from './navUserItem';
 
-export const AppNavigation = connect(({ loginUser: { userInfo }}) => ({ userInfo}))((props) => (
+export const AppNavigation = connect(({ loginUser, users }) => ({ loginUser, users }))((props) => (
     <Navbar color="light" light expand="md">
         <NavbarBrand tag={Link} to='/'>Would You Rather?</NavbarBrand>
         <Nav className="mr-auto" navbar>
@@ -28,9 +28,9 @@ export const AppNavigation = connect(({ loginUser: { userInfo }}) => ({ userInfo
             </NavItem>
         </Nav>
         <Nav className="ml-auto" navbar>
-            {props.userInfo.id !== undefined &&
+            {props.loginUser !== null &&
                 (
-                    <NavUserItem userInfo={props.userInfo} />
+                    <NavUserItem userInfo={props.users[props.loginUser]} />
                 )}
         </Nav>
     </Navbar>

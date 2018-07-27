@@ -35,11 +35,11 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <Fragment>
-              <AppNavigation userInfo={this.props.userInfo} />
+              <AppNavigation />
               <Container className="App-Container-Margin">
                 <Row>
                   <Col sm="12" md={{ size: 10, offset: 1 }}>
-                    {( this.props.userInfo.id !== undefined ? 
+                    {( this.props.loginUser !== null ? 
                       (
                       <Fragment>
                         <Route exact path='/' component={QuestionDashboard}>
@@ -65,7 +65,7 @@ class App extends Component {
   }
 }
 
-export default connect(({ users, questions, loginUser: { userInfo } }) => ({ 
+export default connect(({ users, questions, loginUser }) => ({ 
   initialDataLoad: users !== undefined && questions !== undefined,
-  userInfo }))
+  loginUser }))
 (App);

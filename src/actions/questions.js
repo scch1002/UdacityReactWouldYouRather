@@ -15,7 +15,7 @@ const addNewQuestion = (newQuestion) => ({
 
 export const retrieveQuestions = () => (dispatch) => {
     _getQuestions()
-    .then(questions => dispatch(setQuestions(Object.values(questions))));
+    .then(questions => dispatch(setQuestions(questions)));
 };
 
 export const saveQuestion = (question) => (dispatch) => {

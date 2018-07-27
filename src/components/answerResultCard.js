@@ -1,21 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Card, CardHeader, CardBody,
     CardText, CardTitle, Form, FormGroup, Label, Input, Row, Col, Button } from 'reactstrap';
 
-export const AnswerResult = (props) => (
+export const AnswerResultCard = (props) => (
     <Card>
         <CardBody>
             <CardText>{props.answerText}</CardText>
         </CardBody>
         <CardBody>
+            {props.optionText}
+            <br />
             {`${props.numberVotes} out of ${props.totalVotes} votes`}
-        </CardBody>
-        {props.loginUserAnswer !== false && 
+            {props.loginUserAnswer !== false && 
             (
-                <CardBody>
-                    Your Vote
-                </CardBody>
+                <Fragment>
+                    <br />
+                        Your Vote
+                </Fragment>
             )
             }
+            </CardBody>
     </Card>
 );

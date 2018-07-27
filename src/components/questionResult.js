@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardHeader, CardBody,
     CardText, CardTitle, Form, FormGroup, Label, Input, Row, Col, Button } from 'reactstrap';
-import { answerQuestion } from '../actions/users';
-import { AnswerResult } from './answerResultCard';
+import { AnswerResultCard } from './answerResultCard';
 
 class QuestionResult extends Component {
     render() {
@@ -21,11 +20,13 @@ class QuestionResult extends Component {
                         </Col>
                         <Col>
                             <CardTitle>Results:</CardTitle>
-                            <AnswerResult 
+                            <AnswerResultCard 
+                                optionText={question.optionOne.text}
                                 numberVotes={question.optionOne.votes.length} 
                                 totalVotes={question.optionOne.votes.length + question.optionTwo.votes.length}
                                 loginUserAnswer={questionAnswer === 'optionOne'} />
-                            <AnswerResult 
+                            <AnswerResultCard 
+                                optionText={question.optionTwo.text}
                                 numberVotes={question.optionTwo.votes.length} 
                                 totalVotes={question.optionOne.votes.length + question.optionTwo.votes.length}
                                 loginUserAnswer={questionAnswer === 'optionTwo'} />

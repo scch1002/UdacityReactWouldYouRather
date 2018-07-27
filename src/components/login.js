@@ -30,7 +30,7 @@ class Login extends Component {
     }
     render() {
         return (
-            <Card>
+            <Card className='Login'>
                 <CardHeader>
                     <CardTitle>Welcome to the Would You Rather App!</CardTitle>
                     <CardSubtitle>Please sign in to continue</CardSubtitle>

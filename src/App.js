@@ -7,6 +7,7 @@ import {
   Row,
   Col } from 'reactstrap';
 import LoadingScreen from 'react-loading-screen';
+import LoadingBar from 'react-redux-loading-bar';
 import QuestionDashboard from './components/questionDashboard';
 import './App.css';
 import logo from './logo.svg';
@@ -38,6 +39,7 @@ class App extends Component {
           <BrowserRouter>
             <Fragment>
                 <AppNavigation />
+                <LoadingBar className='App-LoadingBar' />
                 <Container className="App-Container-Margin">
                   <Row>
                     <Col sm="12" md={{ size: 10, offset: 1 }}>

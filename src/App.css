@@ -23,7 +23,13 @@
 }
 
 .App-Container-Margin {
-  margin-top: 5px
+  margin-top: 10px
+}
+
+.App-LoadingBar {
+  background-color: #9ee5f8;
+  height: 3px;
+  position: absolute;
 }
 
 @keyframes App-logo-spin {

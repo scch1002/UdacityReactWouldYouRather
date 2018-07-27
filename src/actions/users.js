@@ -1,3 +1,4 @@
+import { showLoading, hideLoading } from 'react-redux-loading-bar'
 import { _saveQuestionAnswer  } from '../utils/_DATA';
 
 export const RETRIEVE_USER = 'USERS_RETRIEVE_USERS';
@@ -29,6 +30,8 @@ export const logoutUser = () => ({
 export const answerQuestion = (qid, answer) => (dispatch, getState) => {
     let { loginUser, users } = getState();
     let userInfo = users[loginUser];
+    dispatch(showLoading());
     dispatch(setAnswerQuestion(qid, answer, userInfo.id));
-    return _saveQuestionAnswer({ authedUser: userInfo.id, qid, answer});
+    return _saveQuestionAnswer({ authedUser: userInfo.id, qid, answer})
+        .then(t => dispatch(hideLoading()));
 };

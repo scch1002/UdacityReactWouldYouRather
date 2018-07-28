@@ -11,10 +11,10 @@ export const LeaderBoardListItem = (props) => (<Card>
                     <Col>
                         <CardTitle>{props.user.name}</CardTitle>
                         <Row>
-                            <Col className='small bold text-left'>
+                            <Col className='small text-left'>
                                 <strong>Answered questions</strong>
                             </Col>
-                            <Col className='small bold text-right'>
+                            <Col className='small text-right'>
                                 {props.user.answerCount}
                             </Col>
                         </Row>

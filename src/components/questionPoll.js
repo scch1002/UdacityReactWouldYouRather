@@ -48,7 +48,7 @@ class QuestionPoll extends Component {
                                         </Label>
                                     </FormGroup>
                                 </FormGroup>
-                                <Button onClick={this.saveAnswer}>Submit</Button>
+                                <Button className='btn-block' onClick={this.saveAnswer}>Submit</Button>
                             </Form>
                         </Col>
                     </Row>

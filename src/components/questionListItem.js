@@ -25,7 +25,7 @@ export const QuestionListItem = connect(
                                 <br />
                             {props.question.optionTwo.text}
                         </CardText>
-                        <Button tag={Link} to={`/questions/${props.question.id}`}>View Pull</Button>
+                        <Button className='btn-block' tag={Link} to={`/questions/${props.question.id}`}>View Pull</Button>
                     </Col>
                 </Row>
             </CardBody>

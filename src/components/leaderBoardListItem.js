@@ -6,7 +6,7 @@ export const LeaderBoardListItem = (props) => (<Card className='mt-2'>
             <CardBody>
                 <Row>
                     <Col>
-                        <img src={props.user.avatarURL} alt='user avater' />
+                        <img width='150px' height='150px' src={props.user.avatarURL} alt='user avater' />
                     </Col>
                     <Col>
                         <CardTitle>{props.user.name}</CardTitle>

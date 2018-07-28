@@ -29,7 +29,7 @@ class QuestionPoll extends Component {
                 <CardBody>
                     <Row>
                         <Col>
-                            <img src={author.avatarURL} alt='user avatar' />
+                            <img width='250px' height='250px' src={author.avatarURL} alt='user avatar' />
                         </Col>
                         <Col>
                             <CardTitle>Would You Rather ...</CardTitle>

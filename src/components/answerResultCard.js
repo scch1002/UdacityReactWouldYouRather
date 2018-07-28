@@ -5,9 +5,6 @@ import { Card, CardHeader, CardBody,
 export const AnswerResultCard = (props) => (
     <Card>
         <CardBody>
-            <CardText>{props.answerText}</CardText>
-        </CardBody>
-        <CardBody>
             {props.optionText}
             <br />
             {`${props.numberVotes} out of ${props.totalVotes} votes`}

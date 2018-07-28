@@ -16,7 +16,7 @@ class QuestionResult extends Component {
                 <CardBody>
                     <Row>
                         <Col>
-                            <img src={author.avatarURL} />
+                            <img width='250px' height='250px' src={author.avatarURL} />
                         </Col>
                         <Col>
                             <CardTitle>Results:</CardTitle>

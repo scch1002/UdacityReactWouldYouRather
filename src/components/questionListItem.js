@@ -3,19 +3,18 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Card, Button, CardHeader, CardBody,
     CardTitle, CardText, Row, Col} from 'reactstrap';
-import './questionListItem.css';
 
 export const QuestionListItem = connect(
     ({ users }) => ({ users })
 )((props) => 
     {
         let author = props.users[props.question.author];
-        return (<Card className="questionListItem">
+        return (<Card className="mt-2">
             <CardHeader>{author.name} asks</CardHeader>
             <CardBody>
                 <Row>
                     <Col>
-                        <img src={author.avatarURL} />
+                        <img width='' src={author.avatarURL} />
                     </Col>
                     <Col>
                         <CardTitle tag='strong'>Would you rather</CardTitle>

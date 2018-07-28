@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Button, CardHeader, CardBody,
     CardTitle, CardText, Row, Col } from 'reactstrap';
 
-export const LeaderBoardListItem = (props) => (<Card>
+export const LeaderBoardListItem = (props) => (<Card className='mt-2'>
             <CardBody>
                 <Row>
                     <Col>

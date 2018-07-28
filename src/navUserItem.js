@@ -11,7 +11,9 @@ export const NavUserItem = connect()((props) => (
         <div className='navbar-text mr-3'>
             {`Hello, ${props.userInfo.name}`}
         </div>
-        <img className='navbar-text mr-3' alt='user avatar' />
+        <div className='navbar-brand mr-3'>
+            <img width='20px' height='20px' src={props.userInfo.avatarURL} alt='user avatar' />
+        </div>
         <NavItem>
             <NavLink tag={Link} to='/' onClick={event => props.dispatch(logoutUser())}>Logout</NavLink>
         </NavItem>

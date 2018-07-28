@@ -34,6 +34,10 @@ class NewQuestion extends React.Component {
         this.props.dispatch(saveQuestion({author: this.state.author, 
             optionOneText: this.state.optionOneText, 
             optionTwoText: this.state.optionTwoText }));
+        this.setState({
+            optionOneText: '',
+            optionTwoText: ''
+        })
     }
     render() {
         return (

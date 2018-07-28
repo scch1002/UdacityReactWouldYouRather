@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, CardHeader, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Row, Col, Form, FormGroup } from 'reactstrap';
 import { loginUser } from '../actions/users';
-import './login.css'
 import logo from '../logo.svg'
 
 class Login extends Component {   
@@ -46,8 +45,8 @@ class Login extends Component {
                             {this.props.users !== undefined ? Object.values(this.props.users).map(m => 
                                 m !== undefined ?
                                 <DropdownItem onClick={this.onSelectLoginUser} value={m.id}>
-                                    <img alt='User Avatar' />
-                                    {m.name}
+                                    <img width='20px' height='20px' src={m.avatarURL} alt='User Avatar' />
+                                    <span className='ml-3'>{m.name}</span>
                                 </DropdownItem>
                                 : ''
                             ) : ''}

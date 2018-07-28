@@ -53,7 +53,7 @@ class Login extends Component {
                             ) : ''}
                         </DropdownMenu>
                     </Dropdown>
-                    <Button className='btn-block' onClick={this.loginUser}>Sign In</Button>
+                    <Button className='btn-block' disabled={this.state.selectedUser === undefined} onClick={this.loginUser}>Sign In</Button>
                 </CardBody>
             </Card>
         );

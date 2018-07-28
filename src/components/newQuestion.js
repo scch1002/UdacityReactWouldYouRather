@@ -50,7 +50,7 @@ class NewQuestion extends React.Component {
                         <FormGroup>
                         <Input type="text" onChange={this.onOptionTwoChange} value={this.state.optionTwoText} placeholder="Enter Option Two Text Here" />
                         </FormGroup>
-                        <Button className='btn-block' onClick={this.saveNewQuestion}>Submit</Button>
+                        <Button className='btn-block' disabled={this.state.optionOneText.trim().length === 0 || this.state.optionTwoText.trim().length  === 0} onClick={this.saveNewQuestion}>Submit</Button>
                     </Form>
                 </CardBody>
             </Card>

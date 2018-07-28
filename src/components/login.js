@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, CardHeader, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Row, Col, Form, FormGroup } from 'reactstrap';
@@ -30,19 +30,19 @@ class Login extends Component {
     }
     render() {
         return (
-            <Card className='Login'>
-                <CardHeader>
+            <Card>
+                <CardHeader className='text-center'>
                     <CardTitle>Welcome to the Would You Rather App!</CardTitle>
                     <CardSubtitle>Please sign in to continue</CardSubtitle>
                 </CardHeader>
                 <CardImg top width="318" height="180" src={logo} alt="Card image cap" />
                 <CardBody>
-                    <CardTitle>Sign In</CardTitle>
-                    <Dropdown className="User-DropDown" isOpen={this.state.dropdownOpen} toggle={this.toggle}> 
-                        <DropdownToggle caret>
-                            { this.state.selectedUser !== undefined ? this.state.selectedUser.name : 'Select User'}
+                    <CardTitle className='text-center'>Sign In</CardTitle>
+                    <Dropdown className='mb-2 btn-block' isOpen={this.state.dropdownOpen} toggle={this.toggle}> 
+                        <DropdownToggle className='btn-block' caret>
+                                { this.state.selectedUser !== undefined ? this.state.selectedUser.name : 'Select User'}
                         </DropdownToggle>
-                        <DropdownMenu>
+                        <DropdownMenu className='btn-block'>
                             {this.props.users !== undefined ? Object.values(this.props.users).map(m => 
                                 m !== undefined ?
                                 <DropdownItem onClick={this.onSelectLoginUser} value={m.id}>
@@ -53,7 +53,7 @@ class Login extends Component {
                             ) : ''}
                         </DropdownMenu>
                     </Dropdown>
-                    <Button onClick={this.loginUser}>Sign In</Button>
+                    <Button className='btn-block' onClick={this.loginUser}>Sign In</Button>
                 </CardBody>
             </Card>
         );

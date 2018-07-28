@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Card, Button, CardHeader, CardBody,
     CardTitle, CardText, Form, FormGroup, Input } from 'reactstrap';
-import './newQuestion.css'
 import { saveQuestion } from '../actions/questions';
 
 class NewQuestion extends React.Component {

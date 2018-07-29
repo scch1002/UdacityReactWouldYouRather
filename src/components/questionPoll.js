@@ -37,13 +37,17 @@ class QuestionPoll extends Component {
                                 <FormGroup tag="fieldset">
                                     <FormGroup check>
                                         <Label check>
-                                        <Input type="radio" name="radio1" value='optionOne' checked />
+                                        <Input type="radio" name="radio1" value='optionOne' checked 
+                                            onChange={this.answerSelected}
+                                        />
                                         {question.optionOne.text}
                                         </Label>
                                     </FormGroup>
                                     <FormGroup check>
                                         <Label check>
-                                        <Input type="radio" name="radio1" value='optionTwo' />
+                                        <Input type="radio" name="radio1" value='optionTwo'
+                                            onChange={this.answerSelected}
+                                        />
                                         {question.optionTwo.text}
                                         </Label>
                                     </FormGroup>

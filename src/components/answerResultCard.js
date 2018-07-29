@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Card, CardHeader, CardBody,
-    CardText, CardTitle, Form, FormGroup, Label, Input, Row, Col, Button } from 'reactstrap';
+    CardText, CardTitle, Form, FormGroup, Label, Input, Row, Col, Button, Alert} from 'reactstrap';
 import 'react-circular-progressbar/dist/styles.css';
 import CircularProgressbar from 'react-circular-progressbar';
 
@@ -10,15 +10,13 @@ export const AnswerResultCard = (props) => {
         <CardBody>
             <Row>
                 <Col>
-                    {props.optionText}
-                    <br />
-                    {`${props.numberVotes} out of ${props.totalVotes} votes`}
+                    <p className='h5 mb-1'>{props.optionText}</p>
+                    <p className='h6'>{`${props.numberVotes} out of ${props.totalVotes} votes`}</p>
                     {props.loginUserAnswer !== false && 
                         (
-                            <Fragment>
-                                <br />
-                                    Your Vote
-                            </Fragment>
+                            <Alert color="success">
+                                Your Vote
+                            </Alert>
                         )
                         }
                 </Col>

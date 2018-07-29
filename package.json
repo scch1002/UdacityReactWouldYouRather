@@ -6,6 +6,7 @@
     "bootstrap": "^4.1.1",
     "classnames": "^2.2.6",
     "react": "^16.4.1",
+    "react-circular-progressbar": "^1.0.0",
     "react-dom": "^16.4.1",
     "react-loading-screen": "0.0.17",
     "react-redux": "^5.0.7",

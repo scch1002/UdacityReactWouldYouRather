@@ -48,6 +48,7 @@ class QuestionDashboard extends React.Component {
                 {
                 this.props.questions
                   .filter(f => this.props.loginUser.answers[f.id] === undefined)
+                  .sort((s1, s2) => s2.timestamp - s1.timestamp)
                   .map(m => (<QuestionListItem question={m}></QuestionListItem>))
                 }
                 </Col>
@@ -59,6 +60,7 @@ class QuestionDashboard extends React.Component {
                 {
                 this.props.questions
                   .filter(f => this.props.loginUser.answers[f.id] !== undefined)
+                  .sort((s1, s2) => s2.timestamp - s1.timestamp)
                   .map(m => (<QuestionListItem question={m}></QuestionListItem>))
                 }
                 </Col>

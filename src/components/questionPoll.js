@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 import { Card, CardHeader, CardBody,
     CardTitle, Form, FormGroup, Label, Input, Row, Col, Button } from 'reactstrap';
 import { answerQuestion } from '../actions/users';
@@ -17,7 +18,7 @@ class QuestionPoll extends Component {
         });
     }
     saveAnswer = () => {
-        this.props.dispatch(answerQuestion(this.props.questionId, this.state.selectedOption))
+        this.props.dispatch(answerQuestion(this.props.questionId, this.state.selectedOption));
     }
     render() {
         let question = this.props.questions[this.props.questionId];

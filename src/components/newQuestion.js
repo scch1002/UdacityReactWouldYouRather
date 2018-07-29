@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Card, Button, CardHeader, CardBody,
     CardTitle, CardText, Form, FormGroup, Input } from 'reactstrap';
@@ -34,10 +33,7 @@ class NewQuestion extends React.Component {
         this.props.dispatch(saveQuestion({author: this.state.author, 
             optionOneText: this.state.optionOneText, 
             optionTwoText: this.state.optionTwoText }));
-        this.setState({
-            optionOneText: '',
-            optionTwoText: ''
-        })
+        this.props.history.push('/');
     }
     render() {
         return (

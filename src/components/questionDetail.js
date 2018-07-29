@@ -4,9 +4,17 @@ import { Card, CardHeader, CardBody,
     CardTitle, Form, FormGroup, Label, Input, Row, Col, Button } from 'reactstrap';
 import QuestionPoll from './questionPoll';
 import QuestionResult from './questionResult';
+import QuestionNotFound from './questionNotFound';
 
 class QuestionDetail extends Component {
     render() {
+
+        if (this.props.questions[this.props.match.params.question_id] === undefined) {
+            return (
+                <QuestionNotFound />
+            )
+        }
+
         let questionAnswer = this.props.answers[this.props.match.params.question_id];
 
         if (questionAnswer === undefined) {
@@ -22,6 +30,9 @@ class QuestionDetail extends Component {
 }
 
 export default connect(
-    ({ loginUser, users }) =>
-        ({ answers: users[loginUser].answers })
+    ({ loginUser, users, questions }) =>
+        ({ 
+            answers: users[loginUser].answers,
+            questions: questions
+         })
 )(QuestionDetail);

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
     NavItem,

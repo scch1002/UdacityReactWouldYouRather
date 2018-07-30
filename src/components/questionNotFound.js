@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import { Card, CardHeader, CardBody,
-    CardTitle, CardText, Form, FormGroup, Label, Input, Row, Col, Button } from 'reactstrap';
+import React from 'react';
+import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
 
 export default () => (
     <Card>

@@ -9,9 +9,6 @@ class NewQuestion extends Component {
         optionOneText: '',
         optionTwoText: ''
     }
-    constructor(props) {
-        super(props);
-    }
     componentDidMount() {
         this.setState(
             {

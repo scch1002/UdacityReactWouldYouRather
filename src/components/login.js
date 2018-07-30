@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardImg, CardBody,
     CardTitle, CardSubtitle, CardHeader, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';

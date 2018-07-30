@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Card, CardHeader, CardBody,
-    CardText, CardTitle, Form, FormGroup, Label, Input, Row, Col, Button } from 'reactstrap';
+import { Card, CardHeader, CardBody, CardTitle, Row, Col } from 'reactstrap';
 import { AnswerResultCard } from './answerResultCard';
 
 class QuestionResult extends Component {
@@ -16,7 +15,7 @@ class QuestionResult extends Component {
                 <CardBody>
                     <Row>
                         <Col>
-                            <img width='250px' height='250px' src={author.avatarURL} />
+                            <img width='250px' height='250px' src={author.avatarURL} alt='user avatar' />
                         </Col>
                         <Col>
                             <CardTitle>Results:</CardTitle>

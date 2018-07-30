@@ -72,5 +72,5 @@ class QuestionDashboard extends Component {
   }
 }
 
-export default connect(({ loginUser, users, questions }) => ({ loginUser: users[loginUser], questions: Object.values(questions) }))
-  (QuestionDashboard);
+export default connect(({ loginUser, users, questions }) => 
+  ({ loginUser: users[loginUser], questions: Object.values(questions) }))(QuestionDashboard);

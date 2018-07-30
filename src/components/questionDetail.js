@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Card, CardHeader, CardBody,
-    CardTitle, Form, FormGroup, Label, Input, Row, Col, Button } from 'reactstrap';
 import QuestionPoll from './questionPoll';
 import QuestionResult from './questionResult';
 import QuestionNotFound from './questionNotFound';

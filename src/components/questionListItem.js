@@ -14,7 +14,7 @@ export const QuestionListItem = connect(
             <CardBody>
                 <Row>
                     <Col>
-                        <img width='150px' height='150px' src={author.avatarURL} />
+                        <img width='150px' height='150px' src={author.avatarURL} alt='user avatar'/>
                     </Col>
                     <Col>
                         <CardTitle className='h5'>Would You Rather ...</CardTitle>

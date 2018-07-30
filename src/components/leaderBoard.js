@@ -18,5 +18,4 @@ const LeaderBoard = (props) => (
       </Fragment>
     );
 
-export default connect(({ users }) => ({ users: Object.values(users) }))
-  (LeaderBoard);
+export default connect(({ users }) => ({ users: Object.values(users) }))(LeaderBoard);

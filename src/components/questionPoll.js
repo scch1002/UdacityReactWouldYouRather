@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom'
 import { Card, CardHeader, CardBody,
     CardTitle, Form, FormGroup, Label, Input, Row, Col, Button } from 'reactstrap';
 import { answerQuestion } from '../actions/users';
@@ -8,9 +7,6 @@ import { answerQuestion } from '../actions/users';
 class QuestionPoll extends Component {
     state = {
         selectedOption: 'optionOne'  
-    }
-    constructor(props) {
-        super(props);
     }
     answerSelected = (event) => {
         this.setState({

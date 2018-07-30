@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Button, CardHeader, CardBody,
-    CardTitle, CardText, Row, Col } from 'reactstrap';
+    CardTitle, CardText, Row, Col, Table } from 'reactstrap';
 
 export const LeaderBoardListItem = (props) => (<Card className='mt-2'>
             <CardBody>
@@ -9,22 +9,30 @@ export const LeaderBoardListItem = (props) => (<Card className='mt-2'>
                         <img width='150px' height='150px' src={props.user.avatarURL} alt='user avater' />
                     </Col>
                     <Col>
-                        <CardTitle>{props.user.name}</CardTitle>
                         <Row>
-                            <Col className='small text-left'>
-                                <strong>Answered questions</strong>
-                            </Col>
-                            <Col className='small text-right'>
-                                {props.user.answerCount}
-                            </Col>
+                            <CardTitle>{props.user.name}</CardTitle>
                         </Row>
                         <Row>
-                            <Col>
-                                Created questions
-                            </Col>
-                            <Col>
-                                {props.user.questionCount}
-                            </Col>
+                            <Table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            Answered questions
+                                        </td>
+                                        <td>
+                                            {props.user.answerCount}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Created questions
+                                        </td>
+                                        <td>
+                                            {props.user.questionCount}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </Table>
                         </Row>
                     </Col>
                     <Col>

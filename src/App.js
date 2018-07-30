@@ -41,7 +41,7 @@ class App extends Component {
             <Fragment>
                 <AppNavigation />
                 <LoadingBar className='App-LoadingBar' />
-                <Container className="App-Container-Margin">
+                <Container className="mt-3 mb-3">
                   <Row>
                     <Col sm="12" md={{ size: 10, offset: 1 }}>
                       {( this.props.loginUser !== null ? 

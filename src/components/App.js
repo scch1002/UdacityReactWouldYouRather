@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom'
 import {
   Container,
@@ -9,14 +9,14 @@ import {
 import LoadingScreen from 'react-loading-screen';
 import LoadingBar from 'react-redux-loading-bar';
 import StickyFooter from 'react-sticky-footer';
-import QuestionDashboard from './components/questionDashboard';
+import QuestionDashboard from './questionDashboard';
 import './App.css';
-import logo from './logo.svg';
-import NewQuestion from './components/newQuestion';
-import LeaderBoard from './components/leaderBoard';
-import Login from './components/login';
-import QuestionDetail from './components/questionDetail';
-import { handleInitialData } from './actions/shared';
+import logo from '../logo.svg';
+import NewQuestion from './newQuestion';
+import LeaderBoard from './leaderBoard';
+import Login from './login';
+import QuestionDetail from './questionDetail';
+import { handleInitialData } from '../actions/shared';
 import { AppNavigation } from './appNavigation';
 
 class App extends Component {

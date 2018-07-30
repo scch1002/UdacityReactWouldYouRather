@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Card, Button, CardHeader, CardBody,
-    CardTitle, CardText, Form, FormGroup, Input } from 'reactstrap';
+import { Card, Button, CardHeader, CardBody, Form, FormGroup, Input } from 'reactstrap';
 import { saveQuestion } from '../actions/questions';
 
-class NewQuestion extends React.Component {
+class NewQuestion extends Component {
     state = {
         author: '',
         optionOneText: '',

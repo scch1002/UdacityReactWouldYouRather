@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, CardHeader, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Row, Col, Form, FormGroup } from 'reactstrap';
+import { Card, CardImg, CardBody,
+    CardTitle, CardSubtitle, CardHeader, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { loginUser } from '../actions/users';
 import logo from '../logo.svg'
 

@@ -1,16 +1,12 @@
-import React, { Fragment } from 'react';
-import { Route, Link } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
-    Collapse,
     Navbar,
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
-    Container,
-    Row,
-    Col } from 'reactstrap';
+    NavLink } from 'reactstrap';
 import { NavUserItem } from './navUserItem';
 
 export const AppNavigation = connect(({ loginUser, users }) => ({ loginUser, users }))((props) => (

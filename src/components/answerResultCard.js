@@ -1,6 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import { Card, CardHeader, CardBody,
-    CardText, CardTitle, Form, FormGroup, Label, Input, Row, Col, Button, Alert} from 'reactstrap';
+import React from 'react';
+import { Card, CardBody, Row, Col, Alert} from 'reactstrap';
 import 'react-circular-progressbar/dist/styles.css';
 import CircularProgressbar from 'react-circular-progressbar';
 

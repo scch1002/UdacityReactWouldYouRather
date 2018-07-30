@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {
     NavItem,
     NavLink } from 'reactstrap';
-import { logoutUser } from './actions/users';
+import { logoutUser } from '../actions/users';
 
 export const NavUserItem = connect()((props) => (
     <Fragment>
